@@ -1,0 +1,354 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv='cache-control' content='no-cache'> 
+<meta http-equiv='expires' content='0'> 
+<meta http-equiv='pragma' content='no-cache'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<style>
+body, html {
+  height: 100%;
+  margin: 0;
+  font: 400 15px/1.8 "Lato", sans-serif;
+  color: #777;
+}
+
+a:link {
+  color: white;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:visited {
+  color: white;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+.bgimg-1, .bgimg-2, .bgimg-3, .bgimg-4, .bgimg-5 {
+  position: relative;
+  opacity: 0.65;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+
+.bgimg-1 {
+  background-image: url("https://miro.medium.com/v2/resize:fit:1400/1*tnDyYmYpGv2vnJL-HSRk6Q.jpeg");
+  /* background-size:contain; */
+  min-height: 250px;
+}
+
+.bgimg-3 {
+  background-image: url("https://cms-assets.themuse.com/media/lead/01212022-1047259374-coding-classes_scanrail.jpg");
+  /* background-size:contain; */
+  min-height: 250px;
+}
+
+.whiteslide {
+  color: black;
+  opacity: 1.;
+  padding: 18px;
+  background-color: white;
+}
+
+.orangeslide {
+  color: black;
+  opacity: 1.;
+  padding: 18px;
+  background-color: #f45905;
+}
+
+.caption {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 100%;
+  text-align: center;
+  color: #000;
+}
+
+.caption span.border {
+  background-color: #111;
+  color: #fff;
+  padding: 18px;
+  font-size: 40px;
+  letter-spacing: 10px;
+}
+
+h4 {
+  letter-spacing: 2px;
+  font: 15px "Lato", sans-serif;
+  color: black;
+}
+
+h3 {
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  font: 20px "Lato", sans-serif;
+  color: #f45905;
+}
+
+h1 {
+  letter-spacing: 8px;
+  text-transform: uppercase;
+  font: 40px "Lato", sans-serif;
+  color: #111;
+}
+
+.content {
+  padding: 0px;
+}
+
+.sticky {
+  position: fixed;
+  overflow: visible;
+  top: 0;
+  width: 100%;
+}
+
+.sticky + .content {
+  padding-top: 102px;
+}
+
+/* Turn off parallax scrolling for tablets and phones */
+@media only screen and (max-device-width: 1024px) {
+  .bgimg-1, .bgimg-2, .bgimg-3, .bgimg-4, .bgimg-5 {
+    background-attachment: scroll;
+  }
+}
+
+/* Add a black background color to the top navigation */
+.topnav {
+  background-color: #333;
+  /* overflow: hidden; */
+  z-index: 100;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  z-index: 101;
+}
+
+/* Add an active class to highlight the current page */
+.active {
+  background-color: #04AA6D;
+  color: white;
+  z-index: 102;
+}
+
+/* Hide the link that should open and close the topnav on small screens */
+.topnav .icon {
+  display: none;
+}
+
+/* Dropdown container - needed to position the dropdown content */
+.dropdown {
+  float: left;
+  overflow: hidden;
+  z-index: 300;
+}
+
+/* Style the dropdown button to fit inside the topnav */
+.dropdown .dropbtn {
+  font-size: 17px;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 20px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+  z-index: 100;
+}
+
+/* Style the dropdown content (hidden by default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 111;
+}
+
+/* Style the links inside the dropdown */
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+  z-index: 110;
+}
+
+/* Add a dark background on topnav links and the dropdown button on hover */
+.topnav a:hover, .dropdown:hover .dropbtn {
+  background-color: #555;
+  color: white;
+  z-index: 111;
+}
+
+/* Add a grey background to dropdown links on hover */
+.dropdown-content a:hover {
+  background-color: #ddd;
+  color: black;
+  z-index: 111;
+  display: block;
+}
+
+/* Show the dropdown menu when the user moves the mouse over the dropdown button */
+.dropdown:hover .dropdown-content {
+  display: block;
+  z-index: 111;
+}
+
+/* When the screen is less than 600 pixels wide, hide all links, except for the first one ("Home"). Show the link that contains should open and close the topnav (.icon) */
+@media screen and (max-width: 600px) {
+  .topnav a:not(:first-child), .dropdown .dropbtn {
+    display: none;
+  }
+  .topnav a.icon {
+    float: right;
+    display: block;
+  }
+}
+
+/* The "responsive" class is added to the topnav with JavaScript when the user clicks on the icon. This class makes the topnav look good on small screens (display the links vertically instead of horizontally) */
+@media screen and (max-width: 600px) {
+  .topnav.responsive {position: relative;}
+  .topnav.responsive a.icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .topnav.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+  .topnav.responsive .dropdown {float: none;}
+  .topnav.responsive .dropdown-content {position: relative;}
+  .topnav.responsive .dropdown .dropbtn {
+    display: block;
+    width: 100%;
+    text-align: left;
+    position: relative;
+    z-index: 300;
+  }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="bgimg-3" style="min-height:60%">
+  <div class="caption">
+  <span class="border">Sample Hate Speech Dashboard: Reddit Data</span>
+  </div>
+</div>
+
+<div class="topnav" id="myHeader" style="min-height: 60px">
+  <a href="#methods">Methods</a> 
+  <a href="#message-content">Message Content</a>
+  <a href="#influence">Comment Influence</a> 
+  <a href="javascript:void(0);" class="icon" onclick="navmini()">&#9776;</a>
+</div>
+
+<div class="whiteslide" id="methods">
+  <h3 style="text-align:left;color:#f45905">Methods</h3>
+  <p><b>Message Content Analysis:</b> <br>We first generated (1) 20 iterations of various hate speech related ideas relating to antisemitic sentiment using a large language model. These examples were (2) used as proxies to represent the way a person might coherently express an antisemitic idea online. We then (3) created a custom semantic search index for all comments made to a single reddit conversation/comments made to a single submission. <em>The examples provided and reported on in this report were identified using our semantic search function and have not been altered or summarized in any way using a large language model. All data, thus is human in origin and not "hallucinated".</em></p>
+  <p><b>Influence/Convergence Analysis:</b> <br> <a href="https://link.springer.com/article/10.3758/s13428-023-02267-2" style="color: #0c0372;">Rosen and Dale 2023</a> proposed an unsupervised approach for analyzing linguistic convergence in datasets. Their definition is such that when you can recover more of the information about an earlier text from reading a second text, there is evidence of "convergence"--of the later text borrowing ideas from the earlier text. This can be used to assess the profundity of influence that prior text have on subsequent texts, and are included here.</em></p>
+</div>
+
+<div class="bgimg-3"></div>
+
+<div class="whiteslide" id="message-content">
+  <h1 style="text-align:left;color:#f45905">Understanding the kinds of hate being espoused by group members.</h1>
+  <p>We performed an AI-augmented search of the comments being passed around in the group. The following includes the specific hateful messages we looked for and a single example text for context, followed by a visualization to help understand how pervasive such messages were in the data.</p>
+</div>
+
+<div class="whiteslide" id="friends-examples">
+  <h4>Message key and example texts.</h4>
+  <p>The quotes provided below are indicative of the ways that various expressed similarly antisemitic sentiment online.</p>
+  <iframe id="igraph" scrolling="yes" style="border:none;min-height: 300px;width: 80%;align-items: center;" seamless="seamless" src="MessagesExamples.html" height="200" width="100%"></iframe>
+</div>
+
+<div class="bgimg-3" style="min-height: 30px;"></div>
+
+<div class="whiteslide">
+  <h4>Messages and the people who spread them.</h4>
+  <p>Having identified key examples of hateful messages expressed by users, we then clustered them according to user and then the number of messages that the user wrote expressing the sentiment indicated by the message number. Details for interpretting this chart are provided below. </p>
+  <iframe id="igraph" scrolling="yes" style="border:none;" seamless="seamless" src="MessagesMap.html" height="500" width="100%"></iframe>
+  <p> Message numbers are the in middle of chart below. The number corresponds to the number indicated in the examples above. Thus <em>7</em> in the chart below maps to message 7 in the viewer for the quotes in the previous pane.</p>
+</div>
+
+<div class="bgimg-3" style="min-height: 30px;"></div>
+
+<div class="whiteslide">
+  <h4>How close did the corpus match our queries?</h4>
+  <p>Below is a chart presenting the distance between our query examples (see the text in bold in <a href="#friends-examples" style="color: #0c0372;">Message key and example texts</a>). Greater distances mean that the goodness of fit for our model--i.e. how closely the language used by members of the group in question--was poor. </p>
+  <iframe id="igraph" scrolling="yes" style="border:none;min-height: 150px;" seamless="seamless" src="distance-histogram.html" height="525" width="100%"></iframe>
+</div>
+
+<div class="bgimg-3" style="min-height: 80px;"></div>
+
+<div class="whiteslide" id="influence">
+  <h1 style="text-align:left;color:#f45905">Message Influence Analysis </h1>
+  <p>When a particular message is introduced to a thread it can have multiple effects. One of those effects is to trigger convergence in subsequent comments. Convergence is the tendency for individuals to adopt similar ways of expressing themselves and their ideas.</p>
+  <p>In the following chart, we take the identified hate espousing messages authored by individuals and track which comments converge with them. Rows are the hate espousing messages. Columns represent subsequent messages that happened later in the conversation.</p>
+  <p>Two relationships between comments are considered. When a later comment is a direct reply to an older comment, then "is_parent" is true (i.e. the older comment is the parent to the later comment). When "is_sibling" is true, both the older comment and the later comment are written in response to the same parent comment. Previous research has shown that there are differences in where and how hateful content tends to cluster in online discussions, with hateful authors tending to respond in the replies to the same comment in what some researchers have dubbed "hate parties" (<a href="https://www.taylorfrancis.com/books/oa-edit/10.4324/9781003472148/social-processes-online-hate-joseph-walther-ronald-rice?_gl=1*hd6vq0*_gcl_au*MTc5NzMzMjUyMS4xNzIyNDM5NTY3*_ga*MTQ2MzkyMDk5MC4xNzIyNDM5NTY4*_ga_0HYE8YG0M6*MTcyNDI3NzY4Ny43LjAuMTcyNDI3NzY4Ny42MC4wLjA." style="color: #0c0372;">Rea et al. 2024</a>; <a href="https://www.nature.com/articles/s41598-021-01487-w" style="color: #0c0372;">Cinelli et al. 2022</a>)</p>
+  <p>Green squares (and positive values) indicate that convergence occured. Gold indicates that divergence occurred (meaning that the subsequent comment went out of its way to express something that was different from what was proposed in the original comment).</p>
+  <iframe id="igraph" scrolling="yes" style="border:none;" seamless="seamless" src="influence_recurrence.html" height="525" width="100%"></iframe>
+</div>
+
+
+<div class="bgimg-3"></div>
+
+
+
+<!-- <div class="bgimg-3"></div> -->
+
+</body>
+
+<script>
+  window.onscroll = function() {myFunction()};
+  
+  var header = document.getElementById("myHeader");
+  var sticky = header.offsetTop;
+  
+  function myFunction() {
+    if (window.pageYOffset > sticky) {
+      header.classList.add("sticky");
+    } else {
+      header.classList.remove("sticky");
+    }
+  }
+</script>
+
+<script>
+    function navmini() {
+        var x = document.getElementById("myHeader");
+        if (x.className === "topnav") {
+        x.className += " responsive";
+        } else {
+        x.className = "topnav";
+        }
+    }
+</script>
+
+</html>
