@@ -1,0 +1,368 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv='cache-control' content='no-cache'> 
+<meta http-equiv='expires' content='0'> 
+<meta http-equiv='pragma' content='no-cache'>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<style>
+body, html {
+  height: 100%;
+  margin: 0;
+  font: 400 15px/1.8 "Lato", sans-serif;
+  color: #777;
+}
+
+a:link {
+  color: white;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:visited {
+  color: white;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+.bgimg-1, .bgimg-2, .bgimg-3, .bgimg-4, .bgimg-5 {
+  position: relative;
+  opacity: 0.65;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+
+.bgimg-1 {
+  background-image: url("https://miro.medium.com/v2/resize:fit:1400/1*tnDyYmYpGv2vnJL-HSRk6Q.jpeg");
+  /* background-size:contain; */
+  min-height: 250px;
+}
+
+.bgimg-3 {
+  background-image: url("https://www.carroll.edu/sites/default/files/2023-05/carroll-campus.jpg");
+  /* background-size:contain; */
+  min-height: 250px;
+}
+
+.whiteslide {
+  color: black;
+  opacity: 1.;
+  padding: 18px;
+  background-color: white;
+}
+
+.orangeslide {
+  color: black;
+  opacity: 1.;
+  padding: 18px;
+  background-color: #f45905;
+}
+
+.caption {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 100%;
+  text-align: center;
+  color: #000;
+}
+
+.caption span.border {
+  background-color: #111;
+  color: #fff;
+  padding: 18px;
+  font-size: 200%;
+  letter-spacing: 5px;
+}
+
+h4 {
+  letter-spacing: 2px;
+  font: 15px "Lato", sans-serif;
+  color: black;
+}
+
+h3 {
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  font: 20px "Lato", sans-serif;
+  color: #f45905;
+}
+
+h1 {
+  letter-spacing: 8px;
+  text-transform: uppercase;
+  font: 40px "Lato", sans-serif;
+  color: #111;
+}
+
+.content {
+  padding: 0px;
+}
+
+.sticky {
+  position: fixed;
+  overflow: visible;
+  top: 0;
+  width: 100%;
+}
+
+.sticky + .content {
+  padding-top: 102px;
+}
+
+/* Turn off parallax scrolling for tablets and phones */
+@media only screen and (max-device-width: 1024px) {
+  .bgimg-1, .bgimg-2, .bgimg-3, .bgimg-4, .bgimg-5 {
+    background-attachment: scroll;
+  }
+}
+
+/* Add a black background color to the top navigation */
+.topnav {
+  background-color: #333;
+  /* overflow: hidden; */
+  z-index: 100;
+}
+
+/* Style the links inside the navigation bar */
+.topnav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  z-index: 101;
+}
+
+/* Add an active class to highlight the current page */
+.active {
+  background-color: #04AA6D;
+  color: white;
+  z-index: 102;
+}
+
+/* Hide the link that should open and close the topnav on small screens */
+.topnav .icon {
+  display: none;
+}
+
+/* Dropdown container - needed to position the dropdown content */
+.dropdown {
+  float: left;
+  overflow: hidden;
+  z-index: 300;
+}
+
+/* Style the dropdown button to fit inside the topnav */
+.dropdown .dropbtn {
+  font-size: 17px;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 20px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+  z-index: 100;
+}
+
+/* Style the dropdown content (hidden by default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 111;
+}
+
+/* Style the links inside the dropdown */
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+  z-index: 110;
+}
+
+/* Add a dark background on topnav links and the dropdown button on hover */
+.topnav a:hover, .dropdown:hover .dropbtn {
+  background-color: #555;
+  color: white;
+  z-index: 111;
+}
+
+/* Add a grey background to dropdown links on hover */
+.dropdown-content a:hover {
+  background-color: #ddd;
+  color: black;
+  z-index: 111;
+  display: block;
+}
+
+/* Show the dropdown menu when the user moves the mouse over the dropdown button */
+.dropdown:hover .dropdown-content {
+  display: block;
+  z-index: 111;
+}
+
+/* When the screen is less than 600 pixels wide, hide all links, except for the first one ("Home"). Show the link that contains should open and close the topnav (.icon) */
+@media screen and (max-width: 600px) {
+  .topnav a:not(:first-child), .dropdown .dropbtn {
+    display: none;
+  }
+  .topnav a.icon {
+    float: right;
+    display: block;
+  }
+}
+
+/* The "responsive" class is added to the topnav with JavaScript when the user clicks on the icon. This class makes the topnav look good on small screens (display the links vertically instead of horizontally) */
+@media screen and (max-width: 600px) {
+  .topnav.responsive {position: relative;}
+  .topnav.responsive a.icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .topnav.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+  .topnav.responsive .dropdown {float: none;}
+  .topnav.responsive .dropdown-content {position: relative;}
+  .topnav.responsive .dropdown .dropbtn {
+    display: block;
+    width: 100%;
+    text-align: left;
+    position: relative;
+    z-index: 300;
+  }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="bgimg-3" style="min-height:60%">
+  <div class="caption">
+  <span class="border">anti-LGBTQIA+ Sentiment in Carroll College's Campus Ministry: Feb. 2020</span>
+  </div>
+</div>
+
+<div class="topnav" id="myHeader" style="min-height: 60px">
+  <a href="#story">Story</a> 
+  <a href="#methods">Methods</a> 
+  <a href="#message-content">Message Content</a>
+  <a href="#influence">Comment Influence</a> 
+  <a href="javascript:void(0);" class="icon" onclick="navmini()">&#9776;</a>
+</div>
+
+
+<div class="whiteslide" id="story">
+  <h1 style="text-align:left;color:#f45905">The story </h1>
+  <p>Months before COVID-19 finally brought the US to a standstill, school administrators at the Jesuit founded, Carroll College in Helena MT unceremoniously canceled a planned drag show event being held by the campus' Gay Straight Aliance. The show, which had originally been approved by campus admin, had recruited an unprecendented number of performers, and promised to be a celebration of the LGBTQIA+ community in Helena.</p>
+  <p>Students may have seen this coming. Complaints that campus ministry--a powerful institution at a small Catholic college--was espousing messages that contained covert incitement to impinge on the GSA's rights to expression, and ultimately were empowering anti-LGBTQIA+ expression in the wider community. It did not help that local reporting appeared to corroborate that campus admin was highly influenced by one Father Marc Lenneman on campus, who had strong connections to external donors.</p>
+  <p>Helena, and Montana broadly, is home a diverse number of views amongst the populace. But the vast majority of folks have a shared understanding that white supremacist speech is problematic. Even so, <a style="color: #0c0372;" href="https://thehill.com/changing-america/respect/equality/588638-this-us-state-is-home-to-the-most-hate-groups/" target="_blank"></a>The Hill found in 2022 that Montana housed the highest number of white supremacist hate groups in the nation.</a></p>
+  <p>You might be asking yourself, "what the hell? How did this go from talking about anti-LGBTQIA+ sentiment to discussing white supremacy in the state??" And the answer is . . . well it's mostly just plain upsetting. White supremacist groups have historically been strong supporters of what's been called the "birther movement" in the United States. No, not the one where Trump wanted to see Obama's birth certificate. The one where they want to force more women to have more babies. It's a response to a core tenent/anxiety at the heart of the <a href="https://www.splcenter.org/hatewatch/2022/05/17/racist-great-replacement-conspiracy-theory-explained" target="_blank" style="color: #0c0372;"> "Great Replacement Theory"</a>. You might see where this is going, however. This movement has strong ties to eugenicist ideologies, and has often been coopted by white supremacists groups in an effort to increase the number of white Americans to offset the perceived increase in both immigration and non-white births. LGBTQIA+ sentiment runs deep in these communities, if for no other reason than <a href="https://www.npr.org/2022/06/19/1106125400/why-are-white-nationalist-groups-targeting-lgbtq-groups" style="color: #0c0372;" target="_blank"> people are not "contributing" to the "goals" of white supremacists</a> who are plugged in to replacement ideology. This makes LGBTQIA+ groups, and individuals, targets for white supremacist hate.</p>
+  <p>What we wanted to know with this report was how much could Fr. Marc's rhetoric be predicated on sentiments expressed by white supremacist, ant-LGBTQIA+ ideology. We did not assume that Fr. Marc would make overt statements that could be traced directly to the ideology. But we did want to know whether the ideas expressed in his public speeches might be similar to those found in white-supremacist circles. We wanted to trace <em>covert</em> references to such ideologies. And we wanted to do it quantitatively--because while qualitative evidence is just as important and necessary as quantitative evidence, quantitiative studies give use the ability to directly state how confident we are in our conclusions.</p>
+  <p>This work was originaly initiated in late 2021. At the time, Fr. Marc was running a podcast online with a series of homilies that he had given at Carroll College. That became our source material. Because the controversy surrounding the drag show happened around February 2020, we collected the recordings of those homilies that were given at the end of January, and through the middle of March. In revisiting this project, we wanted to collect additional homily transcriptions from before and after the dates we had in our data, however that podcast appears to no longer be indexed on google and may no longer exist online.</p>
+  <br>
+  <h4>Giving grace and the opportunity to learn from past mistakes.</h4>
+  <p>I'd like to stress right here right now that these analyses may not reflect where Fr. Marc sits in his opinions with respect to LGBTQIA+ folks now. Time is an interesting thing, and human minds are mutable. And so while this analysis indeed will look at the ways that anti-LGBTQIA+ sentiment was expressed in the weeks leading up to, and following Carroll College's decision to cancel the GSA's drag show event, it does not mean that Fr. Marc necessarily feels the same way now as he did then. These analyses are a snapshot of an interesting inflection point in the history of Carroll College, and I can't claim anything more than that.</p>
+  <p>People grow and change. I'd like to think that we can give this person the opportunity to do the same.</p>
+</div>
+
+<div class="bgimg-3" style="min-height: 150px;"></div>
+
+<div class="whiteslide" id="methods">
+  <h3 style="text-align:left;color:#f45905">Methods</h3>
+  <p><b>Message Content Analysis:</b> <br>We first generated (1) 20 iterations of various hate speech related ideas relating to antisemitic sentiment using a large language model. These examples were (2) used as proxies to represent the way a person might coherently express an antisemitic idea online. We then (3) created a custom semantic search index for all comments made to a single reddit conversation/comments made to a single submission. <p> One important note here is that we were specifically looking for potential covert hate speech in this project. That is to say, we were looking for instances in which hate-adjacent sentiment is expressed indirectly or implied. From a natural language processing (NLP) perspective, this can be (and is here) measured in how much semantic similarity there is between one written message and another. If there is high similarity between the two, it means one of two things: either (1) what's being said in the two compared messages is the same or (2) you can dang well predict what's being said in one message upon hearing the other one. For covert hate speech, this is the same as saying "the author here didn't say something hateful directly, but what they said points <em>heavily</em> and quantitatively in the direction of a hate based message." </p><p><em>The examples provided and reported on in this report were identified using our semantic search function and have not been altered or summarized in any way using a large language model. All data, thus, is human in origin and not "hallucinated".</em></p>
+  <p><b>Influence/Convergence Analysis:</b> <br> <a href="https://link.springer.com/article/10.3758/s13428-023-02267-2" target="_blank" style="color: #0c0372;">Rosen and Dale 2023</a> proposed an unsupervised approach for analyzing linguistic convergence in datasets. Their definition is such that when you can recover more of the information about an earlier text from reading a second text, there is evidence of "convergence"--of the later text borrowing ideas from the earlier text. This can be used to assess the profundity of influence that prior texts have on subsequent texts. This analysis forms the statistical backbone of our influence analytics reporting in the last section, and provides direct insight into how influential the ideas in comments are based on whether those same ideas propagate in later comments.</p>
+</div>
+
+<div class="bgimg-3" style="min-height: 150px;"></div>
+
+<div class="whiteslide" id="message-content">
+  <h1 style="text-align:left;color:#f45905">Understanding the kinds of hate being espoused by group members.</h1>
+  <p>We performed an AI-augmented search of the comments being passed around in the group. The following includes the specific hateful messages we looked for and a single example text for context, followed by a visualization to help understand how pervasive such messages were in the data.</p>
+</div>
+
+
+<div class="whiteslide">
+  <h4>What messages we looked for, what examples we found.</h4>
+  <p>After we searched the corpus of podcasts for examples of the white-supremacist leaning messages, we then documented which examples were the most aligned with those messages. The following interactive chart shows which white-surpemacist, anti-LGBTQIA+ message we searched for, the dates for the podcasts where we found possible examples, and then the possible example texts/lines themselves. </p>
+  <p>You can click on each ring/pie slice in the sunflower plot below to zoom in deeper and see the breakdown of examples more clearly</p>
+  <iframe id="igraph" scrolling="yes" style="border:none;" seamless="seamless" src="MessagesMap.html" height="500" width="100%"></iframe>
+  <p> Message numbers are the in middle of chart below. The number corresponds to the number indicated in the examples above. Thus <em>7</em> in the chart below maps to message 7 in the viewer for the quotes in the previous pane.</p>
+</div>
+
+<!-- <div class="bgimg-3" style="min-height: 30px;"></div> -->
+
+<div class="whiteslide">
+  <h4>Which days were more active hotspots of potential anti-LGBTQIA+ sentiemtn?</h4>
+  <p>Not every podcast appeared to emphasize the same degree of anti-LGBTQIA+ sentiment in the date range we studied. The following chart provides a breakdown into which days saw the greatest number of examples found in the text of the podcast.  </p>
+  <iframe id="igraph" scrolling="yes" style="border:none;min-height: 150px;" seamless="seamless" src="date-plot.html" height="525" width="100%"></iframe>
+</div>
+
+<div class="bgimg-3" style="min-height: 150px;"></div>
+
+<div class="whiteslide" id="influence">
+  <h1 style="text-align:left;color:#f45905">Message Influence Analysis </h1>
+  <p>When a particular message is introduced it can have multiple effects. One of those effects is to trigger convergence in subsequent comments. Convergence is the tendency for individuals to adopt similar ways of expressing themselves and their ideas. But it can also occur intrapersonally, where, if a speaker receives enough positive reinforcement for a given way of expressing an idea, they might repeat it in subsequent examples too.</p>
+  <!--  <p>In the following chart, we take the identified hate espousing messages authored by individuals and track which comments converge with them. Rows are the hate espousing messages. Columns represent subsequent messages that happened later in the conversation.</p>-->
+  <p>We took the example comments shown in our previous, sunflower plot and used those as starting points to analyze what the effect was on subsequent expressions across the entirety of the corpus. The result is a visualization showing how previous ways of expressing anti-LGBTQIA+ sentiment influence subsequent expressions over time.</p>
+  <p>The thicker the line between two dates in the sankey (or flow) plot below, the more that lines expressing anti-LGBTQIA+ sentiment from the previous date (on the left) influenced anti-LGBTQIA+ sentiment in subsequent dates (on the right). You can explore and see which dates exhibited greater influence by hovering over the connections between dates to see the connection strength between the two of them. The connection strength is measured in the number of total additional bits of information that are shared between the anti-LGBTQIA+ sentiment expressing lines from the previous date and the lines in the subsequent date.</p>
+  <!-- <p>Green squares (and positive values) indicate that convergence occured. Gold indicates that divergence occurred (meaning that the subsequent comment went out of its way to express something that was different from what was proposed in the original comment).</p> -->
+    <!-- <iframe id="igraph" scrolling="yes" style="border:none;" seamless="seamless" src="influence_recurrence.html" height="525" width="100%"></iframe> -->
+  <iframe id="igraph" scrolling="yes" style="border:none;" seamless="seamless" src="line_influence.html" height="525" width="100%"></iframe>
+</div>
+
+
+<div class="bgimg-3"></div>
+
+
+
+<!-- <div class="bgimg-3"></div> -->
+
+</body>
+
+<script>
+  window.onscroll = function() {myFunction()};
+  
+  var header = document.getElementById("myHeader");
+  var sticky = header.offsetTop;
+  
+  function myFunction() {
+    if (window.pageYOffset > sticky) {
+      header.classList.add("sticky");
+    } else {
+      header.classList.remove("sticky");
+    }
+  }
+</script>
+
+<script>
+    function navmini() {
+        var x = document.getElementById("myHeader");
+        if (x.className === "topnav") {
+        x.className += " responsive";
+        } else {
+        x.className = "topnav";
+        }
+    }
+</script>
+
+</html>
