@@ -298,7 +298,7 @@ h1 {
 
 <div class="whiteslide" id="message-content">
   <h1 style="text-align:left;color:#f45905">Understanding the kinds of hate being espoused by group members.</h1>
-  <p>We performed an AI-augmented search of the comments being passed around in the group. The following includes the specific hateful messages we looked for and a single example text for context, followed by a visualization to help understand how pervasive such messages were in the data.</p>
+  <p>We performed an AI-augmented search of the comments being passed around in the group. The following includes a visualization of the specific hateful messages we looked for, what dates we found examples of similar messages, and the line that seemed to correspond to it. We wanted to help folks understand how pervasive such messages were in the data by allowing them to explore our findings interactively and directly.</p>
 </div>
 
 
@@ -307,7 +307,6 @@ h1 {
   <p>After we searched the corpus of podcasts for examples of the white-supremacist leaning messages, we then documented which examples were the most aligned with those messages. The following interactive chart shows which white-surpemacist, anti-LGBTQIA+ message we searched for, the dates for the podcasts where we found possible examples, and then the possible example texts/lines themselves. </p>
   <p>You can click on each ring/pie slice in the sunflower plot below to zoom in deeper and see the breakdown of examples more clearly</p>
   <iframe id="igraph" scrolling="yes" style="border:none;" seamless="seamless" src="MessagesMap.html" height="500" width="100%"></iframe>
-  <p> Message numbers are the in middle of chart below. The number corresponds to the number indicated in the examples above. Thus <em>7</em> in the chart below maps to message 7 in the viewer for the quotes in the previous pane.</p>
 </div>
 
 <!-- <div class="bgimg-3" style="min-height: 30px;"></div> -->
@@ -325,7 +324,7 @@ h1 {
   <p>When a particular message is introduced it can have multiple effects. One of those effects is to trigger convergence in subsequent comments. Convergence is the tendency for individuals to adopt similar ways of expressing themselves and their ideas. But it can also occur intrapersonally, where, if a speaker receives enough positive reinforcement for a given way of expressing an idea, they might repeat it in subsequent examples too.</p>
   <!--  <p>In the following chart, we take the identified hate espousing messages authored by individuals and track which comments converge with them. Rows are the hate espousing messages. Columns represent subsequent messages that happened later in the conversation.</p>-->
   <p>We took the example comments shown in our previous, sunflower plot and used those as starting points to analyze what the effect was on subsequent expressions across the entirety of the corpus. The result is a visualization showing how previous ways of expressing anti-LGBTQIA+ sentiment influence subsequent expressions over time.</p>
-  <p>The thicker the line between two dates in the sankey (or flow) plot below, the more that expressions of anti-LGBTQIA+ sentiment from the previous date (on the left) influenced anti-LGBTQIA+ sentiment in subsequent dates (on the right). You can explore and see which dates exhibited greater influence by hovering over the connections between dates to see the connection strength between the two of them. The connection strength is measured in the number of total additional bits of information that are shared between the anti-LGBTQIA+ sentiment expressing lines from the previous date and the lines in the subsequent date.</p>
+  <p>The thicker the line between two dates in the sankey (or flow) plot below, the more that expressions of anti-LGBTQIA+ sentiment from the previous date (on the left) influenced <em>any of the content expressed</em> in subsequent speeches (on the right). You can explore and see which dates exhibited greater influence by hovering over the connections between dates to see the connection strength between the two of them. The connection strength is measured in the number of total additional bits of information that are shared between the anti-LGBTQIA+ sentiment expressing lines from the previous date and the lines in the subsequent date.</p>
   <!-- <p>Green squares (and positive values) indicate that convergence occured. Gold indicates that divergence occurred (meaning that the subsequent comment went out of its way to express something that was different from what was proposed in the original comment).</p> -->
     <!-- <iframe id="igraph" scrolling="yes" style="border:none;" seamless="seamless" src="influence_recurrence.html" height="525" width="100%"></iframe> -->
   <iframe id="igraph" scrolling="yes" style="border:none;" seamless="seamless" src="line_influence.html" height="525" width="100%"></iframe>
